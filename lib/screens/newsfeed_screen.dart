@@ -1,4 +1,8 @@
+import 'package:bautista_mobprog/constants.dart';
+import 'package:bautista_mobprog/widgets/custom_font.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../widgets/post_card.dart';
 
 class NewsFeedScreen extends StatelessWidget {
@@ -7,7 +11,7 @@ class NewsFeedScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      children: const [
+      children: [
         PostCard(
           userName: 'Memester',
           postContent: 'didn\'t know goofy was this tuff 🥶',
@@ -67,7 +71,335 @@ class NewsFeedScreen extends StatelessWidget {
           hasImage: false,
           date: '2d',
         ),
-      ]
+        Padding(
+          padding: EdgeInsets.only(top: 10, left: ScreenUtil().setSp(10)),
+          child: CustomFont(text: 'Advertisement', fontSize: ScreenUtil().setSp(15), color: FB_TEXT_COLOR_WHITE, fontWeight: FontWeight.bold,),
+        ),
+        CarouselSlider(
+          items: carouselItem1(), 
+          options: CarouselOptions(
+            enableInfiniteScroll: false, height: 297.h, padEnds: false
+          )
+        ),
+        PostCard(
+          userName: 'ILLIT',
+          postContent: 'YUNAH',
+          hasAvatar: true,
+          avatar: 'assets/images/illit.png',
+          image: 'assets/images/yunah.png',
+          numOfLikes: 911,
+          numOfComments: 420,
+          numOfShares: 69,
+          hasImage: true,
+          date: '12h',
+        ),
+        PostCard(
+          userName: 'ILLIT',
+          postContent: 'MINJU',
+          hasAvatar: true,
+          avatar: 'assets/images/illit.png',
+          image: 'assets/images/minju.png',
+          numOfLikes: 67,
+          numOfComments: 12,
+          numOfShares: 5,
+          hasImage: true,
+          date: '43m',
+        ),
+        PostCard(
+          userName: 'ILLIT',
+          postContent: 'MOKA',
+          hasAvatar: true,
+          avatar: 'assets/images/illit.png',
+          image: 'assets/images/moka.png',
+          numOfLikes: 45,
+          numOfComments: 8,
+          numOfShares: 3,
+          hasImage: true,
+          date: '1d',
+        ),
+        PostCard(
+          userName: 'ILLIT',
+          postContent: 'WONHEE',
+          hasAvatar: true,
+          avatar: 'assets/images/illit.png',
+          image: 'assets/images/wonhee.png',
+          numOfLikes: 320,
+          numOfComments: 75,
+          numOfShares: 12,
+          hasImage: true,
+          date: '13h',
+        ),
+        PostCard(
+          userName: 'ILLIT',
+          postContent: 'IROHA',
+          hasAvatar: true,
+          avatar: 'assets/images/illit.png',
+          image: 'assets/images/iroha.png',
+          numOfLikes: 80,
+          numOfComments: 50,
+          numOfShares: 9,
+          hasImage: true,
+          date: '2d',
+        ),
+        Padding(
+          padding: EdgeInsets.only(top: 10, left: ScreenUtil().setSp(10)),
+          child: CustomFont(text: 'Advertisement', fontSize: ScreenUtil().setSp(15), color: FB_TEXT_COLOR_WHITE, fontWeight: FontWeight.bold,),
+        ),
+        CarouselSlider(
+          items: carouselItem2(), 
+          options: CarouselOptions(
+            enableInfiniteScroll: false, height: 297.h, padEnds: false
+          )
+        ),
+        PostCard(
+          userName: 'STAYC',
+          postContent: 'SUMIN',
+          hasAvatar: true,
+          avatar: 'assets/images/stayc.png',
+          image: 'assets/images/sumin.png',
+          numOfLikes: 911,
+          numOfComments: 420,
+          numOfShares: 69,
+          hasImage: true,
+          date: '12h',
+        ),
+        PostCard(
+          userName: 'STAYC',
+          postContent: 'SIEUN',
+          hasAvatar: true,
+          avatar: 'assets/images/stayc.png',
+          image: 'assets/images/sieun.png',
+          numOfLikes: 67,
+          numOfComments: 12,
+          numOfShares: 5,
+          hasImage: true,
+          date: '43m',
+        ),
+        PostCard(
+          userName: 'STAYC',
+          postContent: 'ISA',
+          hasAvatar: true,
+          avatar: 'assets/images/stayc.png',
+          image: 'assets/images/isa.png',
+          numOfLikes: 45,
+          numOfComments: 8,
+          numOfShares: 3,
+          hasImage: true,
+          date: '1d',
+        ),
+        PostCard(
+          userName: 'STAYC',
+          postContent: 'SEEUN',
+          hasAvatar: true,
+          avatar: 'assets/images/stayc.png',
+          image: 'assets/images/seeun.png',
+          numOfLikes: 45,
+          numOfComments: 8,
+          numOfShares: 3,
+          hasImage: true,
+          date: '1d',
+        ),
+        PostCard(
+          userName: 'STAYC',
+          postContent: 'YOON',
+          hasAvatar: true,
+          avatar: 'assets/images/stayc.png',
+          image: 'assets/images/yoon.png',
+          numOfLikes: 320,
+          numOfComments: 75,
+          numOfShares: 12,
+          hasImage: true,
+          date: '13h',
+        ),
+        PostCard(
+          userName: 'STAYC',
+          postContent: 'J',
+          hasAvatar: true,
+          avatar: 'assets/images/stayc.png',
+          image: 'assets/images/j.png',
+          numOfLikes: 80,
+          numOfComments: 50,
+          numOfShares: 9,
+          hasImage: true,
+          date: '2d',
+        ),
+        Padding(
+          padding: EdgeInsets.only(top: 10, left: ScreenUtil().setSp(10)),
+          child: CustomFont(text: 'Advertisement', fontSize: ScreenUtil().setSp(15), color: FB_TEXT_COLOR_WHITE, fontWeight: FontWeight.bold,),
+        ),
+        CarouselSlider(
+          items: carouselItem3(), 
+          options: CarouselOptions(
+            enableInfiniteScroll: false, height: 297.h, padEnds: false
+          )
+        ),
+      ],
     );
+  }
+
+  List<Widget> carouselItem1() {
+    return [
+      PostCard(
+        userName: 'Anonymous Seller',
+        postContent: 'PHILIPS Air Fryer',
+        hasAvatar: false,
+        image: 'assets/images/ad_item_1.png',
+        hasImage: true,
+        date: '12h',
+        adsMarket: 'Buy now!',
+        isAds: true,
+      ),
+      PostCard(
+        userName: 'Anonymous Seller',
+        postContent: 'Complete Office PC Set',
+        hasAvatar: false,
+        avatar: 'assets/images/avatar2.png',
+        image: 'assets/images/ad_item_2.png',
+        hasImage: true,
+        date: '43m',
+        adsMarket: 'Grab now!',
+        isAds: true,
+      ),
+      PostCard(
+        userName: 'Anonymous Seller',
+        postContent: 'Inverter Small Microwave Oven',
+        hasAvatar: false,
+        image: 'assets/images/ad_item_3.png',
+        hasImage: true,
+        date: '1d',
+        adsMarket: 'Limited offer!',
+        isAds: true,
+      ),
+      PostCard(
+        userName: 'Anonymous Seller',
+        postContent: 'Electric Oven',
+        hasAvatar: false,
+        image: 'assets/images/ad_item_4.png',
+        hasImage: true,
+        date: '13h',
+        adsMarket: 'Acquire now!',
+        isAds: true,
+      ),
+      PostCard(
+        userName: 'Anonymous Seller',
+        postContent: '25L Multipurpose Oven',
+        hasAvatar: false,
+        image: 'assets/images/ad_item_5.png',
+        hasImage: true,
+        date: '2d',
+        adsMarket: 'Free shipping!',
+        isAds: true,
+      ),
+    ];
+  }
+
+  List<Widget> carouselItem2() {
+    return [
+      PostCard(
+        userName: 'Anonymous Seller',
+        postContent: 'Apple iPad (11th Generation)',
+        hasAvatar: false,
+        image: 'assets/images/ad_item_6.png',
+        hasImage: true,
+        date: '12h',
+        adsMarket: 'Buy now!',
+        isAds: true,
+      ),
+      PostCard(
+        userName: 'Anonymous Seller',
+        postContent: 'Portable Power Station',
+        hasAvatar: false,
+        image: 'assets/images/ad_item_7.png',
+        hasImage: true,
+        date: '43m',
+        adsMarket: 'Grab now!',
+        isAds: true,
+      ),
+      PostCard(
+        userName: 'Anonymous Seller',
+        postContent: 'Uno Card',
+        hasAvatar: false,
+        image: 'assets/images/ad_item_8.png',
+        hasImage: true,
+        date: '1d',
+        adsMarket: 'Limited offer!',
+        isAds: true,
+      ),
+      PostCard(
+        userName: 'Anonymous Seller',
+        postContent: 'Hand Grip Trainer',
+        hasAvatar: false,
+        image: 'assets/images/ad_item_9.png',
+        hasImage: true,
+        date: '13h',
+        adsMarket: 'Acquire now!',
+        isAds: true,
+      ),
+      PostCard(
+        userName: 'Anonymous Seller',
+        postContent: 'Conference Room camera',
+        hasAvatar: false,
+        image: 'assets/images/ad_item_10.png',
+        hasImage: true,
+        date: '2d',
+        adsMarket: 'Free shipping!',
+        isAds: true,
+      ),
+    ];
+  }
+  
+  List<Widget> carouselItem3() {
+    return [
+      PostCard(
+        userName: 'Anonymous Seller',
+        postContent: 'Knorr Sinigang Mix',
+        hasAvatar: false,
+        image: 'assets/images/ad_item_11.png',
+        hasImage: true,
+        date: '12h',
+        adsMarket: 'Buy now!',
+        isAds: true,
+      ),
+      PostCard(
+        userName: 'Anonymous Seller',
+        postContent: 'Gatorade Blue Bolt',
+        hasAvatar: false,
+        image: 'assets/images/ad_item_12.png',
+        hasImage: true,
+        date: '43m',
+        adsMarket: 'Grab now!',
+        isAds: true,
+      ),
+      PostCard(
+        userName: 'Anonymous Seller',
+        postContent: 'Safety Vest',
+        hasAvatar: false,
+        image: 'assets/images/ad_item_13.png',
+        hasImage: true,
+        date: '1d',
+        adsMarket: 'Limited offer!',
+        isAds: true,
+      ),
+      PostCard(
+        userName: 'Anonymous Seller',
+        postContent: 'Forsaken Chance Plush Toy',
+        hasAvatar: false,
+        image: 'assets/images/ad_item_14.png',
+        hasImage: true,
+        date: '13h',
+        adsMarket: 'Acquire now!',
+        isAds: true,
+      ),
+      PostCard(
+        userName: 'Anonymous Seller',
+        postContent: 'Feastables Milk Chocolate',
+        hasAvatar: false,
+        image: 'assets/images/ad_item_15.png',
+        hasImage: true,
+        date: '2d',
+        adsMarket: 'Free shipping!',
+        isAds: true,
+      ),
+    ];
   }
 }

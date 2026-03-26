@@ -1,3 +1,6 @@
+import '../widgets/custom_dialogs.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+
 import '../widgets/custom_info.dart';
 import '../widgets/custom_button.dart';
 import '../widgets/custom_font.dart';
@@ -8,6 +11,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ProfileScreen extends StatefulWidget {
   final String? username;
+  final String coverImgUrl =
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlCpRucIFGyZferNJXuQn9GWJNqndFqVbd4A&s';
+  final String profileImgUrl = 
+      'https://media.discordapp.net/attachments/856874434605744142/1443981776560324679/sketch-1688837704405.jpg?ex=697631d3&is=6974e053&hm=f0917d728382d0aacc3c7b9295c8d226c6d59debe534a69663f11a724f678222&=&format=webp&width=648&height=648';
   const ProfileScreen({super.key, this.username});
 
   @override
@@ -28,15 +35,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
               Stack(
                 clipBehavior: Clip.none,
                 children: [
-                  Container(
-                    height: 200,
-                    decoration: BoxDecoration(
-                      color: Colors.grey[300],
-                      image: const DecorationImage(
-                        image: AssetImage('assets/images/cover_photo.png'),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
+                  CachedNetworkImage(
+                    height: 275,
+                    width: double.maxFinite,
+                    fit: BoxFit.cover,
+                    imageUrl: widget.coverImgUrl,
+                    progressIndicatorBuilder:
+                        (context, url, downloadProgress) =>
+                            CircularProgressIndicator(
+                              color: FB_DARK_PRIMARY,
+                              value: downloadProgress.progress,
+                            ),
+                    errorWidget: (context, url, error) =>
+                        Icon(Icons.error, size: 100.sp),
                   ),
                   Positioned(
                     bottom: -50,
@@ -44,10 +55,20 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     child: Stack(
                       alignment: Alignment.center,
                       children: [
-                        const CircleAvatar(
-                          radius: 50,
-                          backgroundImage: AssetImage(
-                            'assets/images/user_avatar.png',
+                        ClipOval(
+                          child: CachedNetworkImage(
+                            width: 100,
+                            height: 100,
+                            fit: BoxFit.cover,
+                            imageUrl: widget.profileImgUrl,
+                            progressIndicatorBuilder:
+                                (context, url, downloadProgress) =>
+                                    CircularProgressIndicator(
+                                      color: FB_DARK_PRIMARY,
+                                      value: downloadProgress.progress,
+                                    ),
+                            errorWidget: (context, url, error) =>
+                                Icon(Icons.error),
                           ),
                         ),
                         Positioned(
@@ -170,8 +191,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       children: [
                         PostCard(
                           userName: widget.username ?? 'Username',
-                          postContent:
-                              'hahahaha ynnuf ka talaga @benrichards!!',
+                          postContent: 'hahahaha ynnuf ka talaga @benrichards!!',
                           hasAvatar: true,
                           avatar: 'assets/images/user_avatar.png',
                           numOfLikes: 1,
@@ -363,38 +383,70 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       physics: const NeverScrollableScrollPhysics(),
 
                       children: [
-                        Image.asset(
-                          'assets/images/valorant.png',
-                          fit: BoxFit.cover,
+                        GestureDetector(
+                          child: Image.asset(
+                            'assets/images/valorant.png',
+                            fit: BoxFit.cover,
+                          ),
+                          onTap: () => customShowImageDialog(context, image: 'assets/images/valorant.png',),
                         ),
-                        Image.asset(
-                          'assets/images/line.png',
-                          fit: BoxFit.cover,
+                        GestureDetector(
+                          child: Image.asset(
+                            'assets/images/line.png',
+                            fit: BoxFit.cover,
+                          ),
+                          onTap: ()=> customShowImageDialog(context, image: 'assets/images/line.png'),
                         ),
-                        Image.asset(
-                          'assets/images/cover_photo.png',
-                          fit: BoxFit.cover,
+                        GestureDetector(
+                          child: Image.asset(
+                            'assets/images/cover_photo.png',
+                            fit: BoxFit.cover,
+                          ),
+                          onTap: ()=> customShowImageDialog(context, image: 'assets/images/cover_photo.png'),
                         ),
-                        Image.asset(
-                          'assets/images/user_avatar.png',
-                          fit: BoxFit.cover,
+                        GestureDetector(
+                          child: Image.asset(
+                            'assets/images/user_avatar.png',
+                            fit: BoxFit.cover,
+                          ),
+                          onTap: ()=> customShowImageDialog(context, image: 'assets/images/user_avatar.png'),
                         ),
-                        Image.asset(
-                          'assets/images/cat1.png',
-                          fit: BoxFit.cover,
+                        GestureDetector(
+                          child: Image.asset(
+                            'assets/images/cat1.png',
+                            fit: BoxFit.cover,
+                          ),
+                          onTap: ()=> customShowImageDialog(context, image: 'assets/images/cat1.png'),
                         ),
-                        Image.asset(
-                          'assets/images/cat2.png',
-                          fit: BoxFit.cover,
+                        GestureDetector(
+                          child: Image.asset(
+                            'assets/images/cat2.png',
+                            fit: BoxFit.cover,
+                          ),
+                          onTap: ()=> customShowImageDialog(context, image: 'assets/images/cat2.png'),
                         ),
-                        Image.asset(
-                          'assets/images/cat3.png',
-                          fit: BoxFit.cover,
+                        GestureDetector(
+                          child: Image.asset(
+                            'assets/images/cat3.png',
+                            fit: BoxFit.cover,
+                          ),
+                          onTap: ()=> customShowImageDialog(context, image: 'assets/images/cat3.png'),
                         ),
-                        Image.asset(
-                          'assets/images/discord_mod.png',
-                          fit: BoxFit.cover,
+                        GestureDetector(
+                          child: Image.asset(
+                            'assets/images/discord_mod.png',
+                            fit: BoxFit.cover,
+                          ),
+                          onTap: ()=> customShowImageDialog(context, image: 'assets/images/discord_mod.png'),
                         ),
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
                       ],
                     ),
                   ],

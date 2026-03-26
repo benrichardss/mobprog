@@ -1,3 +1,4 @@
+import 'package:bautista_mobprog/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '/screens/home_screen.dart';
@@ -19,7 +20,7 @@ class BautistaFacebook extends StatelessWidget {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Facebook Replication',
-          initialRoute: '/login',
+          initialRoute: '/splash',
           routes: {
             '/home': (context) {
               final username =
@@ -28,6 +29,7 @@ class BautistaFacebook extends StatelessWidget {
             },
             '/login': (context) => const LogInScreen(),
             '/register': (context) => const RegisterScreen(),
+            '/splash': (context) => const SplashScreen()
           },
         );
       },

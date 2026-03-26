@@ -1,4 +1,6 @@
 import 'package:bautista_mobprog/constants.dart';
+import 'package:bautista_mobprog/screens/home_screen.dart';
+import 'package:bautista_mobprog/widgets/custom_dialogs.dart';
 import 'package:bautista_mobprog/widgets/custom_inkwell_button.dart';
 import 'package:bautista_mobprog/widgets/custom_textformfield.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +17,23 @@ class _LogInScreenState extends State<LogInScreen> {
   TextEditingController usernameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
+  void login() {
+    if (usernameController.text == 'user' && passwordController.text == 'user') {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (build) => HomeScreen(username: usernameController.text),
+        ),
+      );
+    } else {
+      customDialog(
+        context,
+        title: 'Error',
+        content: 'Username and password does not match',
+      );
+    }
+  }
+
   bool _obscurePassword = true;
 
   @override
@@ -43,7 +62,7 @@ class _LogInScreenState extends State<LogInScreen> {
                   child: Column(
                     children: [
                       Image.asset(
-                        'assets/images/nu_logo.png',
+                        'assets/images/doomscroll.png',
                         height: ScreenUtil().setHeight(150),
                       ),
                       SizedBox(height: ScreenUtil().setHeight(30)),
@@ -85,11 +104,7 @@ class _LogInScreenState extends State<LogInScreen> {
                         onTap: () {
                           if (_formKey.currentState!.validate()) {
                             _formKey.currentState!.save();
-                            Navigator.popAndPushNamed(
-                              context,
-                              '/home',
-                              arguments: usernameController.text,
-                            );
+                            login();
                           }
                         },
                         bgColor: FB_PRIMARY,
